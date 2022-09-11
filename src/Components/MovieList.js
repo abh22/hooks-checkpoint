@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MovieCard from "./MovieCard";
 import "./Card.css";
 import PropTypes  from "prop-types";
+import { Link } from "react-router-dom";
 const MovieList = ({ movies ,addMovie}) => {
   MovieList.propTypes={
     
@@ -26,7 +27,9 @@ const MovieList = ({ movies ,addMovie}) => {
       
       <div className="list">
         {movies.map((movie) => (
-          <MovieCard key={movie.title} movie={movie} />
+          <Link to={`movieCard/:${id}`}>
+          <MovieCard key={movie.id} movie={movie} />
+          </Link>
         ))}
       </div>
       <form  onSubmit={handleSubmit}>

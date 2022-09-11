@@ -1,8 +1,17 @@
 import React from "react";
 import "./Card.css";
-const MovieCard = ({ movie: { title, description, rating, posterURL } }) => {
+
+
+import { Link, Outlet } from "react-router-dom";
+import Trailer from "./Trailer";
+
+const MovieCard = ({
+  movie: { title, description, rating, posterURL, id },
+}) => {
+  // const navigation = useNavigate();
   return (
-    <div className="card">
+  // <Link to={`movieCard/:${id}`}>
+    <div  className="card">
       <p style={{ color: "white", fontSize: 30, fontWeight: 500 }}> {title}</p>
       <img src={posterURL} alt="movie" />
       <p>
@@ -16,7 +25,9 @@ const MovieCard = ({ movie: { title, description, rating, posterURL } }) => {
         <span style={{ color: "yellow", fontWeight: 500 }}>Rating:</span>{" "}
         {rating}
       </p>
+     <Trailer movies={movies}/>
     </div>
+ 
   );
 };
 
